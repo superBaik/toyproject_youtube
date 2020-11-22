@@ -2,27 +2,47 @@
   "name": "toyproject_youtube",
   "version": "1.0.0",
   "scripts": {
-    "start": "babel-node init.js"
+    "dev:server": "nodemon --exec babel-node init.js --delay 2",
+    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
+    "build:assets": "cross-env WEBPACK_ENV=production webpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.6",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@fortawesome/fontawesome-free": "^5.15.1",
+    "autoprefixer": "^10.0.0",
+    "babel-loader": "^8.2.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^4.2.0",
     "mongoose": "^5.10.15",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
-    "pug": "^3.0.0"
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.6",
+    "postcss-loader": "^4.0.2",
+    "pug": "^3.0.0",
+    "webpack-cli": "^4.2.0"
   },
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^10.0.0",
+    "css-loader": "^4.3.0",
+    "mini-css-extract-plugin": "^0.11.2",
+    "postcss": "^8.0.5",
+    "postcss-loader": "^4.0.2",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.12"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/superBaik/toyproject_youtube.git"
