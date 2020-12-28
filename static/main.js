@@ -125,6 +125,7 @@ const sendComment = async comment => {
       comment
     }
   });
+  // console.log(response);
   if (response.status === 200) {
     addComment(comment);
   }
@@ -196,7 +197,7 @@ const volumeRange = document.getElementById("jsVolume");
 const registerView = () => {
   const videoId = window.location.href.split("/videos/")[1];
   fetch(`/api/${videoId}/view`, {
-    method: "POST"
+    method: "POST" //database 변경이 필요하기때문에. 
   });
 };
 
@@ -334,6 +335,9 @@ const recorderContainer = document.getElementById("jsRecordContainer");
 const recordBtn = document.getElementById("jsRecordBtn");
 const videoPreview = document.getElementById("jsVideoPreview");
 
+
+var now = new Date();
+  
 let streamObject;
 let videoRecorder;
 
@@ -354,6 +358,9 @@ const stopRecording = () => {
 };
 
 const startRecording = () => {
+  console.log(now);
+  
+  alert(now)
   videoRecorder = new MediaRecorder(streamObject);
   videoRecorder.start();
   videoRecorder.addEventListener("dataavailable", handleVideoData);
@@ -362,6 +369,8 @@ const startRecording = () => {
 
 const getVideo = async () => {
   try {
+    
+    
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: true,
       video: { width: 1280, height: 720 }

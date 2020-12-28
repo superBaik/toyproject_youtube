@@ -11,6 +11,8 @@ import session from "express-session";
 import MongoStore from "connect-mongo"
 import {localsMiddleware} from "./middlewares";
 import routes from "./routes";  //URL 
+import apiRouter from "./routers/apiRouter";
+
 
 import "./passport";
 
@@ -61,5 +63,7 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
+app.use(routes.api, apiRouter);
+
 
 export default app;

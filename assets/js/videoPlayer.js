@@ -12,7 +12,7 @@ const volumeRange = document.getElementById("jsVolume");
 const registerView = () => {
   const videoId = window.location.href.split("/videos/")[1];
   fetch(`/api/${videoId}/view`, {
-    method: "POST"
+    method: "POST" //database 변경이 필요하기때문에. 
   });
 };
 
